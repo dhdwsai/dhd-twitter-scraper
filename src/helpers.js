@@ -576,6 +576,7 @@ const getEntities = (tweet) => {
         symbols: _.get(entities, 'symbols', []).map(({ text }) => text).filter(Boolean),
         user_mentions: _.get(entities, 'user_mentions', []).map((user) => _.omit(user, ['id', 'indices'])).filter(Boolean),
         urls: _.get(entities, 'urls', []).map((url) => _.pick(url, ['url', 'expanded_url', 'display_url'])).filter(Boolean),
+        media: _.get(entities, 'media', []).map(({ display_url }) => display_url).filter(Boolean),
     };
 };
 
